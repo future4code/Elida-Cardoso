@@ -1,0 +1,2 @@
+# Aprendizados da Semana
+Nessa semana aprendi a rotina da **Labenu**, a mexer no **terminal**, aprendi também o básico do **GitHub** e hoje a como editar arquivos no **VSCode**, juntando todos os conteudos dessa semana.
