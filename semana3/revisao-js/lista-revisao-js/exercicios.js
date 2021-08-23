@@ -28,7 +28,9 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+    numeroPar = array.filter(numeroArray => numeroArray %2 === 0)
+    numeroElevadoADois = numeroPar.map(numeroPar => numeroPar ** 2)
+    return numeroElevadoADois
 }
 
 // EXERCÍCIO 06
