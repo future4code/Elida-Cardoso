@@ -22,7 +22,8 @@ return array.sort(function(num1, num2) {
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
+    numeroPar = array.filter(numeroArray => numeroArray %2 === 0)
+    return numeroPar
 }
 
 // EXERCÍCIO 05
