@@ -46,7 +46,23 @@ return maior
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
+    
+    let maiorNumero = []
+    if (num1 > num2) {
+        maiorNumero = num1
+    } else {maiorNumero = num2}
 
+    let maiorDivisivelPorMenor = []
+    if (maiorNumero % num2 <= 2) {
+        maiorDivisivelPorMenor = true
+    } else {maiorDivisivelPorMenor = false}
+
+    let diferenca = []
+    if (num1 > num2){
+       diferenca = num1 - num2
+    } else {diferenca = num2 - num1} 
+
+    return object = {"maiorNumero":maiorNumero,"maiorDivisivelPorMenor":maiorDivisivelPorMenor, "diferenca":diferenca}
 }
 
 // EXERCÍCIO 08
