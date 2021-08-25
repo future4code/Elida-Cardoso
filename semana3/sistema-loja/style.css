@@ -1,0 +1,75 @@
+header {
+    background-color: #4E366B;
+    color: whitesmoke;
+    font-family: serif;
+    font-size: xx-large;
+    padding: 20px;
+}
+
+/* pagina inicial */
+
+.div-primeira-pagina {
+    background-color: #CDC7EB;
+    text-align: center;
+}
+
+#bem-vinde {
+    font-family: Impact, fantasy;
+    color: rgb(26, 23, 23);
+}
+
+#frase-da-loja {
+    font-family: Didot, serif;
+    color: rgb(26, 23, 23);
+}
+
+.div-navegacao {
+    background-color: #EFE9F7;
+    text-align: center;
+}
+
+footer {
+    background-color: #4E366B;
+    color: whitesmoke;
+    font-family: serif;
+    text-align: center;
+}
+
+/* controle de estoque */
+
+#h2-ctrl-de-estoque {
+    background-color: #A896D6;
+    font-family: serif;
+    padding: 8px 20px;
+}
+
+.table-ctrl-de-estoque {
+    background-color: #EFE9F7;
+}
+
+/* adicionar produto */
+
+#h2-adc-produto {
+    background-color: #A896D6;
+    font-family: serif;
+    padding: 8px 20px;
+}
+
+button {
+    background-color: #A896D6;
+    text-align: center;
+    padding: 10px;
+}
+
+/* funcionarios */
+
+#h2-funcionarios {
+    background-color: #A896D6;
+    font-family: serif;
+    padding: 8px 20px;
+}
+
+#ul-funcionarios {
+    font-size: larger;
+    line-height: 30px;
+}
