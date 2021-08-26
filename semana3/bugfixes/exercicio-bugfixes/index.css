@@ -115,6 +115,14 @@ td button {
     color: black;
 }
 
+.comprar-button:active {
+    color: white;
+}
+
+.comprar-button:hover {
+    background-color: #d4bd55;
+}
+
 .img-table {
     width: 60px;
 }
@@ -133,6 +141,10 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+}
+
+#back-button:active {
+    color: white;
 }
 
 #back-button:hover {
