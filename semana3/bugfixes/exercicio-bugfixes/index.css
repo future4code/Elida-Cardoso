@@ -71,6 +71,11 @@ div img {
     color: white;
 }
 
+#container-de-descricao>p, #container-de-descricao>ol, #container-de-descricao>li, #container-de-descricao>h3 {
+    position: relative;
+    top: 30%;
+}
+
 #container-de-descricao>ol {
     padding: 15px 0px;
 }
