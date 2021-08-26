@@ -115,6 +115,10 @@ td button {
     color: black;
 }
 
+img {
+    width: 60px;
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
