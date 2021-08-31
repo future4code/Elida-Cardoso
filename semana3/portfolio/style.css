@@ -1,0 +1,96 @@
+*{
+    background-color: #F2F0CE;
+    color: rgb(34, 34, 34);
+    font-family: 'Trebuchet MS', sans-serif;
+    margin: auto;
+}
+
+h1, h2, h3, h4, p, br, ul, em, li, a {
+    background-color: #D0D2F2;
+}
+
+header {
+    background-color: #F2E205;
+    padding: 10px 20px;
+    
+}
+
+.cabecalho {
+    display: inline;
+    background-color: #F2E205;
+}
+
+#formulario {
+    text-decoration: none;
+}
+
+button {
+    background-color: #D0D2F2;
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding: 10px;
+    margin: 0 20px;
+    border-radius: 10px;
+}
+
+.botao-formulario:hover {
+    background-color: #a1a3bd;
+    color: white;
+}
+
+.botao-formulario:active {
+    background-color: #F2EDA2;
+    color: black;
+}
+
+.sobre-mim {
+    background-color: #D0D2F2;
+    padding: 20px;
+    margin: 50px 10px;
+    border-radius: 20px 30px;
+}
+
+.onde-estudei {
+    background-color: #D0D2F2;
+    padding: 20px;
+    margin: 50px 10px;
+    border-radius: 20px 30px;
+}
+
+.onde-estudei>h2 {
+    font-size: 30px;
+}
+
+.projetos {
+    background-color: #D0D2F2;
+    padding: 20px;
+    margin: 50px 10px;
+    border-radius: 20px 30px;
+}
+
+.projetos>h3 {
+    font-size: 30px;
+}
+
+.habilidades {
+    background-color: #D0D2F2;
+    padding: 20px;
+    margin: 50px 10px;
+    border-radius: 20px 30px;
+}
+
+.habilidades>h4 {
+    font-size: 30px;
+}
+
+footer {
+    background-color: #F2E205;
+    padding: 10px 20px;
+}
+
+#redes-sociais {
+    background-color: #F2E205;
+    font-size: 20px;
+    text-align: center;
+}
