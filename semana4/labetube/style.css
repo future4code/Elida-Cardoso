@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-rows: 80px 1fr 50px;
+}
+
+header {
+    background-color: purple;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecalho {
+    color: white;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.barra-de-busca {
+    display: flex;
+    align-items: center;
+}
+
+.caixa-videos {
+    border: 1px solid black;
+    box-shadow: 3px 4px darkgray;
+    border-radius: 4px;
+    width: 280px;
+    margin: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.caixa-videos>h2{
+    padding: 10px 5px;
+}
+
+video {
+    width: 100%;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+footer {
+    background-color: purple;
+    color: white;
+    font-size: large;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagina-videos {
+    margin: 30px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.pagina-videos>h1{
+    padding: 10px;
+}
