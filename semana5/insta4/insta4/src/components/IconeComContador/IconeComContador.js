@@ -3,9 +3,12 @@ import styled from 'styled-components'
 
 const IconContainer = styled.div`
 	display: flex;
+	justify-content: center;
+	align-items: center;
 `
 const IconImage = styled.img`
 	margin-right: 5px;
+	height: 5vh;
 `
 
 export function IconeComContador(props) {
