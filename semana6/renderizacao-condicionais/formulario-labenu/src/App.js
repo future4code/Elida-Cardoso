@@ -27,7 +27,7 @@ export default class App extends React.Component {
   };
 
   onClickProximaEtapa = () => {
-    this.setState({ etapa: 1})
+    this.setState({ etapa: this.state.etapa +1})
   }
 
   render (){
@@ -36,7 +36,10 @@ export default class App extends React.Component {
       <div>
         {this.renderizaEtapa()}
         <hr />
-        <button onClick={this.onClickProximaEtapa}>Próxima Etapa!</button>
+        {this.state.etapa !== 4 && (
+        <button onClick={this.onClickProximaEtapa}>Próxima Etapa!
+        </button> )}
+        
       </div>
     );
   }
