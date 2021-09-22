@@ -1,6 +1,16 @@
 import React from "react";
 import SingIn from "./components/SingIn";
 import UsersList from "./components/UsersList";
+import {createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+    body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Open-Sans, Helvetica, Sans-Serif;
+    }
+`;
 
 export default class App extends React.Component {
   state = {
@@ -29,9 +39,10 @@ export default class App extends React.Component {
   render () {
 
     return (
-      <div>
+        <div>
+          <GlobalStyle/>
         {this.escolheTela()}
-      </div>
+        </div>
     );
   };
 }
