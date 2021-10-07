@@ -26,6 +26,7 @@ const App = () => {
     axios.put("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:elida/clear")
     .then((res) => {
       alert("Cache limpo com sucesso!")
+      setPages("home")
     })
     .catch((err) => {
       alert("algo deu errado :(", err.response.data)

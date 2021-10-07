@@ -33,7 +33,7 @@ const HomePage = (props) => {
     const choosePerson = () => {
         axios.post(urlChoose, body)
         .then((res) => {
-            console.log("deu certo")
+            getProfile()
         })
         .catch((err) => {
             console.log(err.response.data)
@@ -47,9 +47,8 @@ const HomePage = (props) => {
 
     useEffect(() => {
         getProfile()
-    }, [choice])
+    }, [])
 
-    console.log(body)
 
     return (
         <div>
