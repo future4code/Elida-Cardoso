@@ -2,17 +2,21 @@ import React from "react";
 import styled from "styled-components"
 
 const DivHeader = styled.div`
-border: 1px solid black;
+padding: 8px 4px;
 display: flex;
 align-items: center;
+justify-content: space-between;
+    h1{
+        font-family: 'Josefin Sans', sans-serif;
+    }
 `;
 
 const Header = (props) => {
     return (
         <DivHeader className="divHeader">
-            <h1>ASTROMATCH</h1>
             <button onClick={() => {props.changePage("home")}}>home</button>
-            <button onClick={() => {props.changePage("matches")}}>matches</button>
+            <h1>astromatch</h1>
+            <button onClick={() => {props.changePage("matches")}} bg="brand.900">matches</button>
         </DivHeader>
     )
 }
