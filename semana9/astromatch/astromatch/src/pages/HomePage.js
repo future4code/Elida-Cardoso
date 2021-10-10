@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components"
+import coracao from "../IMG/favorite_border_black_24dp.svg"
+import xis from "../IMG/close_black_24dp.svg"
 
 const DivHome = styled.div`
-    border: 2px solid red;
-
+    height: 87vh;
+    min-height: 87vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,22 +14,78 @@ const DivHome = styled.div`
 `
 
 const DivImagem = styled.div`
-    border: 2px solid red;
-
     position: relative;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 64vh;
-    width: 28vw;
+    top: -3vh;
+    border-radius: 10px;
+    max-height: 64vh;
+    min-height: 64vh;
     max-width: 28vw;
+    min-width: 28vw;
     display: flex;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
 `
 const Imagem = styled.img`
+    object-fit: contain;
     max-height: 100%;
     width: 100%;
     max-width: 100%;
+`
+const Texto = styled.div`
+    position: absolute;
+    bottom: 141px;
+    width: 28vw;
+    border-radius: 10px;
+    padding: 20px 6px;
+    color: #f1f1f1;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: rgb(0 0 0 / 35%) 0px -200px 16px -80px inset;
+`
+const TextoNome = styled.strong`
+font-size: 30px;
+`
+const DivSimNao = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 20vw;
+`
+const BotaoCore = styled.img`
+        height: 10vh;
+        height: 10vh;
+        width: 6vw;
+        cursor: pointer;
+        border-radius: 360px;
+        border: 4px solid black;
+        
+        :hover{
+            transform: translateX(10%) rotate(10deg);
+            transition: all 0.3s ease-out 50ms;
+            background-color: #DC9AFE;
+        }
+
+        :active{
+            transform: scale(0.8);
+        }
+`
+const BotaoNao = styled.img`
+        height: 10vh;
+        height: 10vh;
+        width: 6vw;
+        cursor: pointer;
+        border-radius: 360px;
+        border: 4px solid black;
+        
+        :hover{
+            transform: translateY(10%) rotate(-10deg);
+            transition: all 0.3s ease-out 50ms;
+            background-color: #F9082A;
+        }
+
+        :active{
+            transform: scale(0.8);
+        }
 `
 
 const HomePage = (props) => {
@@ -79,12 +137,14 @@ const HomePage = (props) => {
             <DivImagem>
                 <Imagem src={profile.photo} alt="imagem do perfil"/>
             </DivImagem>
-            <p><strong>{profile.name}</strong>, {profile.age}</p>
-            <p>{profile.bio}</p>
-            <div>
-                <button onClick={() => {matchChoice(true)}}>sim</button>
-                <button onClick={() => {matchChoice(false)}}>não</button>
-            </div>
+            <Texto> 
+                <p><TextoNome>{profile.name}</TextoNome>, {profile.age}</p>
+                <p>{profile.bio}</p>
+            </Texto>
+            <DivSimNao>
+                <BotaoNao src={xis} onClick={() => {matchChoice(false)}}/>
+                <BotaoCore src={coracao} onClick={() => {matchChoice(true)}}/>
+            </DivSimNao>
         </DivHome>
     )
 }

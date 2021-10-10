@@ -1,5 +1,21 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import styled from "styled-components";
+
+const DivMatches = styled.div`
+    display: grid;
+
+    img{
+        width: 10vw;
+        border-radius: 360px;
+        object-fit: contain;
+    }
+`
+const DivImagem = styled.div`
+        /* width: 5vw;
+        height: 2vh;
+        border-radius: 360px; */
+`
 
 const MatchesPage = (props) => {
     const [profileMatch, setProfileMatch] = useState([])
@@ -20,15 +36,17 @@ const MatchesPage = (props) => {
 
     const profileComponents = profileMatch.map((profile) => {
         return <div key={profile.id}>
-            <img src={profile.photo} alt={"imagem perfil"}/>
+            <DivImagem>
+                <img src={profile.photo} alt={"imagem perfil"}/>
+            </DivImagem>
             <p>{profile.name}</p>
         </div>
     })
 
     return (
-        <div>
+        <DivMatches>
             {profileComponents}
-        </div>
+        </DivMatches>
     )
 }
 export default MatchesPage

@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage"
 
 import styled from "styled-components"
 import { createGlobalStyle } from 'styled-components';
-import { background } from "@chakra-ui/styled-system"
+import bg from "./IMG/bg-astro.jpg"
 
 const GlobalStyle = createGlobalStyle`
   
@@ -20,8 +20,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const DivBG = styled.div`
+  background-image: url(${bg});
+  background-position: 500px 70px;
+`
+
 const DivMain = styled.div`
-  background-color: #F1F1F1;
   height: 100vh;
   width: 100vw;
 
@@ -71,14 +75,16 @@ const App = () => {
   }
 
   return (
-    <DivMain>
-      <DivChildren>
-        <GlobalStyle/>
-        <Header changePage={changePage}/>
-        {choosePage()}
+    <DivBG>
+      <DivMain>
+        <DivChildren>
+          <GlobalStyle/>
+          <Header changePage={changePage}/>
+          {choosePage()}
+        </DivChildren>
         <button onClick={() => {clear()}}>limpar</button>
-      </DivChildren>
-    </DivMain>
+      </DivMain>
+    </DivBG>
   );
 }
 
