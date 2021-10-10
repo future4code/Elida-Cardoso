@@ -43,6 +43,37 @@ const DivChildren = styled.div`
   display: grid;
   grid-template-rows: 8vh 1fr 8vh;
   align-items: center;
+
+  @media (max-width: 767px) {
+      width: 99vw;
+  }
+`
+const BotaoLimpar = styled.button`
+    background-color: #112770;
+    color: #f1f1f1;
+    position: absolute;
+    right: 35.5vw;
+    bottom: 3vh;
+    width: 10vw;
+    height: 5vh;
+    font-weight: bold;
+    letter-spacing: 3px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+            right: 4vw;
+            width: 20vw;
+        }
+
+    :hover{
+      background-color: #2c3d72;
+    }
+
+    :active{
+      transform: scale(0.8);
+    }
 `
 
 const App = () => {
@@ -82,7 +113,7 @@ const App = () => {
           <Header changePage={changePage}/>
           {choosePage()}
         </DivChildren>
-        <button onClick={() => {clear()}}>limpar</button>
+        <BotaoLimpar onClick={() => {clear()}}>limpar</BotaoLimpar>
       </DivMain>
     </DivBG>
   );

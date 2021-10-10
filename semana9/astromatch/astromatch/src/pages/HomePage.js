@@ -24,6 +24,11 @@ const DivImagem = styled.div`
     display: flex;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
+
+    @media (max-width: 768px) {
+            max-width: 93vw;
+            min-width: 93vw;
+        }
 `
 const Imagem = styled.img`
     object-fit: contain;
@@ -34,6 +39,7 @@ const Imagem = styled.img`
 const Texto = styled.div`
     position: absolute;
     bottom: 141px;
+    height: 23vh;
     width: 28vw;
     border-radius: 10px;
     padding: 20px 6px;
@@ -41,6 +47,11 @@ const Texto = styled.div`
     font-size: 20px;
     font-weight: bold;
     box-shadow: rgb(0 0 0 / 35%) 0px -200px 16px -80px inset;
+
+    @media (max-width: 768px) {
+            bottom: 149px;
+            width: 93vw;
+        }
 `
 const TextoNome = styled.strong`
 font-size: 30px;
@@ -50,6 +61,10 @@ const DivSimNao = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 20vw;
+
+    @media (max-width: 768px) {
+            width: 65vw;
+        }
 `
 const BotaoCore = styled.img`
         height: 10vh;
@@ -58,11 +73,15 @@ const BotaoCore = styled.img`
         cursor: pointer;
         border-radius: 360px;
         border: 4px solid black;
+
+        @media (max-width: 768px) {
+            width: 18vw;
+        }
         
         :hover{
             transform: translateX(10%) rotate(10deg);
             transition: all 0.3s ease-out 50ms;
-            background-color: #DC9AFE;
+            background-color: #FB5D9A;
         }
 
         :active{
@@ -76,9 +95,13 @@ const BotaoNao = styled.img`
         cursor: pointer;
         border-radius: 360px;
         border: 4px solid black;
+
+        @media (max-width: 768px) {
+            width: 18vw;
+        }
         
         :hover{
-            transform: translateY(10%) rotate(-10deg);
+            transform: translateX(-10%) rotate(-10deg);
             transition: all 0.3s ease-out 50ms;
             background-color: #F9082A;
         }

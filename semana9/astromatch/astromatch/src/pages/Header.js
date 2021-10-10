@@ -4,20 +4,24 @@ import lista from "../IMG/group_black_24dp.svg"
 import matches from "../IMG/local_fire_department_black_24dp.svg"
 
 const DivHeader = styled.div`
-padding: 8px 4px;
-display: flex;
-align-items: center;
-justify-content: space-between;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     h1{
         font-family: 'Josefin Sans',sans-serif;
         font-size: 3vw;
         color: #112770;
-        padding-top: 8px;
         background-image: linear-gradient(to right,transparent 50%,#DC9AFE 50%);
         background-size: 200% 50%;
         background-repeat: repeat-x;
         background-position: -100% 100%;
         cursor: default;
+
+        @media (max-width: 768px) {
+            font-size: 11vw;
+        }
     }
 
     img {

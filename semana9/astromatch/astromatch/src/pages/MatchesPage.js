@@ -4,17 +4,53 @@ import styled from "styled-components";
 
 const DivMatches = styled.div`
     display: grid;
+    align-items: center;
+    width: 30vw;
+    height: 80vh;
+    min-height: 80vh;
+    margin-top: 10px;
+    overflow: auto;
 
-    img{
-        width: 10vw;
-        border-radius: 360px;
-        object-fit: contain;
+    @media (max-width: 768px) {
+            width: 98vw;
     }
 `
 const DivImagem = styled.div`
-        /* width: 5vw;
-        height: 2vh;
-        border-radius: 360px; */
+        min-width: 6vw;
+        max-width: 6vw;
+        height: 10vh;
+        min-height: 10vh;
+
+        @media (max-width: 768px) {
+            min-width: 19vw;
+            max-width: 19vw;
+        }
+
+        img {
+            object-fit: cover;
+            object-position: center top;
+            max-height: 100%;
+            min-height: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            border-radius: 360px;
+        }
+`
+const DivPerfil = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 8px 8px;
+
+    p {
+        font-size: 3vh;
+        font-weight: bold;
+        padding-left: 13px;
+    }
+
+    :hover{
+        background-color: #f1f1f1;
+        cursor: default;
+    }
 `
 
 const MatchesPage = (props) => {
@@ -35,12 +71,12 @@ const MatchesPage = (props) => {
     }, [])
 
     const profileComponents = profileMatch.map((profile) => {
-        return <div key={profile.id}>
+        return <DivPerfil key={profile.id}>
             <DivImagem>
                 <img src={profile.photo} alt={"imagem perfil"}/>
             </DivImagem>
             <p>{profile.name}</p>
-        </div>
+        </DivPerfil>
     })
 
     return (
