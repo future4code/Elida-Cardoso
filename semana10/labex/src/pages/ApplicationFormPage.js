@@ -11,8 +11,8 @@ const ApplicationFormPage = () => {
     return (
         <div>
             <h1>Fórmulario de Aplicação</h1>
-                <select>
-                    <option>Escolha uma opção</option>
+                <select defaultValue={""}>
+                    <option value={""} disabled>Escolha um destino</option>
                     <option>Opção 1</option>
                     <option>Opção 2</option>
                     <option>Opção 3</option>

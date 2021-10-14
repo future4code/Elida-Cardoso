@@ -1,8 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router";
+import { useProtectedPage } from "../components/customHooks";
 
 const TripDetailsPage = () => {
     const history = useHistory();
+
+    useProtectedPage();
 
     const goBack = () => {
         history.goBack();

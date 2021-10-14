@@ -1,7 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router";
-
+import { useProtectedPage } from "../components/customHooks";
 import styled from "styled-components";
+
 
 const DivTrip = styled.div`
 cursor: pointer;
@@ -11,6 +12,8 @@ margin: 5px 0;
 
 const AdminHomePage = () => {
     const history = useHistory();
+
+    useProtectedPage();
 
     const goToCreateTrip = () => {
         history.push("/admin/trips/create");

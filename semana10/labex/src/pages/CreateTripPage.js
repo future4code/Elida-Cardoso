@@ -1,8 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router";
+import { useProtectedPage } from "../components/customHooks";
 
 const CreateTripPage = () => {
     const history = useHistory()
+
+    useProtectedPage();
 
     const goBack = () => {
         history.goBack();
@@ -13,8 +16,8 @@ const CreateTripPage = () => {
             <h1>Criar Viagem</h1>
                 <input placeholder={"Título da viagem"}/>
                     <br/>
-                <select>
-                    <option>--Escolha um planeta--</option>
+                <select defaultValue={""}>
+                    <option value={""} disabled>Escolha um planeta</option>
                     <option>Mercúrio</option>
                     <option>Vênus</option>
                     <option>Terra</option>
