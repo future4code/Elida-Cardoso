@@ -1,7 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { useProtectedPage } from "../components/customHooks";
+import { useProtectedPage } from "../hooks/useProtectedPage"
 import styled from "styled-components";
+import { useGetTrips } from "../hooks/useGetTrips";
 
 
 const DivTrip = styled.div`
@@ -11,6 +12,7 @@ margin: 5px 0;
 `
 
 const AdminHomePage = () => {
+    const [data, isLoading, error] = useGetTrips([])
     const history = useHistory();
 
     useProtectedPage();
@@ -33,9 +35,20 @@ const AdminHomePage = () => {
                 <button onClick={goBack}>Voltar</button>
                 <button onClick={goToCreateTrip}>Criar Viagem</button>
                 <button>Logout</button>
-            <DivTrip>
-                <h4 onClick={goToTripDetailsPage}>Viagem Pra Algum Lugar</h4>
-            </DivTrip>
+            <h3>Lista de Viagens</h3>
+                {isLoading && <p>Carregando...</p>}
+                {!isLoading && error && <p>Algo deu errado x_x</p>}
+                {!isLoading && data && data.length === 0 && (
+                <p>Não foi encontrado nenhum resultado</p>
+                )}
+                {data && data.map((trip) => {
+                    return (
+                        <DivTrip key={trip.id} onClick={() => goToTripDetailsPage(trip.id)} id={trip.id}>
+                            {trip.name}
+                            <button>X</button>
+                        </DivTrip>
+                    )
+                })}
         </div>
     )
 }

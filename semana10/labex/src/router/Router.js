@@ -39,6 +39,9 @@ export const Router = () => {
                 <Route exact path={"/admin/trips/:id"}>
                     <TripDetailsPage />
                 </Route>
+                <Route>
+                    <div> Erro 404 - Página não encontrada</div>
+                </Route>
             </Switch>
         </BrowserRouter>
     )
