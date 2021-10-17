@@ -4,6 +4,44 @@ import {BASE_URL} from "../constants/urls"
 import { useHistory } from "react-router";
 import { useProtectedPage } from "../hooks/useProtectedPage"
 import useForm from "../hooks/useForm";
+import styled from "styled-components";
+
+const DivForm = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Bebas Neue', cursive;
+
+    button {
+        width: 7vw;
+        height: 4vh;
+        border: none;
+        background-color: #FF865E;
+        font-family: 'Georama', sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 3px;
+        cursor: pointer;
+
+        :hover{
+            background-color: #FC997B;
+        }
+
+        :active{
+            transform: scale(0.8);
+        }
+    }
+`
+const DivFormChildren = styled.div`
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 50vh;
+`
 
 
 const CreateTripPage = () => {
@@ -39,8 +77,9 @@ const CreateTripPage = () => {
     };
 
     return (
-        <div>
+        <DivForm>
             <h1>Criar Viagem</h1>
+                <DivFormChildren>
                 <form onSubmit={submitNewTrip}>
                     <label>Título da viagem: </label>
                         <input 
@@ -52,6 +91,7 @@ const CreateTripPage = () => {
                         onChange={onChange}
                         required
                         />
+                        <br/>
                     <label>Destino: </label>
                         <select 
                         name={"planet"}
@@ -70,6 +110,7 @@ const CreateTripPage = () => {
                             <option value={"Plutão"}>Plutão</option>
                             <option value={"Outros"}>Outros</option>
                         </select>
+                        <br/>
                     <label>Data: </label>
                         <input 
                         name={"date"}
@@ -80,6 +121,7 @@ const CreateTripPage = () => {
                         onChange={onChange}
                         required
                         />
+                        <br/>
                     <label>Descrição: </label>
                         <input
                         name={"description"}
@@ -89,6 +131,7 @@ const CreateTripPage = () => {
                         pattern={"^.{20,}"}
                         title={"Necessário descrição! Mínimo 20 caracteres"}
                         required/>
+                        <br/>
                     <label>Duração da viagem: </label>
                         <input
                         name={"durationInDays"}
@@ -99,13 +142,15 @@ const CreateTripPage = () => {
                         onChange={onChange}
                         required
                         />
+                        <br/>
                         <button>Criar</button>
                 </form>
+                </DivFormChildren>
                 <div>
                     <button onClick={goBack}>Voltar</button>
                     
                 </div>
-        </div>
+        </DivForm>
     )
 }
 

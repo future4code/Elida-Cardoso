@@ -4,6 +4,43 @@ import { useHistory } from "react-router";
 import { BASE_URL } from "../constants/urls";
 import useForm from "../hooks/useForm";
 import { useGetTrips } from "../hooks/useGetTrips";
+import styled from "styled-components";
+
+const DivForm = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Bebas Neue', cursive;
+
+    button {
+        width: 7vw;
+        height: 4vh;
+        border: none;
+        background-color: #FF865E;
+        font-family: 'Georama', sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 3px;
+        cursor: pointer;
+
+        :hover{
+            background-color: #FC997B;
+        }
+
+        :active{
+            transform: scale(0.8);
+        }
+    }
+`
+const DivFormChildren = styled.div`
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+`
 
 const ApplicationFormPage = () => {
     const [tripId, setTripId] = useState("");
@@ -48,13 +85,15 @@ const ApplicationFormPage = () => {
     });
 
     return (
-        <div>
+        <DivForm>
             <h1>Fórmulario de Aplicação</h1>
+                <DivFormChildren>
                 <form onSubmit={submitNewApply}>
                     <select defaultValue={""} onChange={onChangeTrip}>
                         <option value={""} disabled>Escolha um destino</option>
                         {tripsOptions}
                     </select>
+                    <br/>
                     <input 
                     name={"name"}
                     value={form.name}
@@ -64,6 +103,7 @@ const ApplicationFormPage = () => {
                     title={"O nome deve ter no mínimo 3 caracteres"}
                     required
                     />
+                    <br/>
                     <input 
                     name={"age"}
                     value={form.age}
@@ -73,6 +113,7 @@ const ApplicationFormPage = () => {
                     min={18}
                     required
                     />
+                    <br/>
                     <input 
                     name={"applicationText"}
                     value={form.applicationText}
@@ -80,6 +121,7 @@ const ApplicationFormPage = () => {
                     onChange={onChange}
                     required
                     />
+                    <br/>
                     <input 
                     name={"profession"}
                     value={form.profession}
@@ -87,6 +129,7 @@ const ApplicationFormPage = () => {
                     onChange={onChange}
                     required
                     />
+                    <br/>
                     <select
                     name={"country"}
                     onChange={onChange}
@@ -102,8 +145,9 @@ const ApplicationFormPage = () => {
                         <br/>
                     <button type={"submit"}>Enviar</button>
                 </form>
+                </DivFormChildren>
                 <button onClick={goBack}>Voltar</button>
-        </div>
+        </DivForm>
     )
 }
 

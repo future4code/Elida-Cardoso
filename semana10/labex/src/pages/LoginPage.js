@@ -4,6 +4,36 @@ import { useHistory } from "react-router";
 import { BASE_URL } from "../constants/urls";
 import { useProtectedPage } from "../hooks/useProtectedPage"
 import useForm from "../hooks/useForm";
+import styled from "styled-components"
+
+const DivLogin = styled.div`
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 55vh;
+    font-family: 'Bebas Neue', cursive;
+
+    button {
+        width: 4vw;
+        height: 4vh;
+        border: none;
+        background-color: #FF865E;
+        font-family: 'Georama', sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 3px;
+        cursor: pointer;
+
+        :hover{
+            background-color: #FC997B;
+        }
+
+        :active{
+            transform: scale(0.8);
+        }
+    }
+`
 
 const LoginPage = () => {
     useProtectedPage();
@@ -35,7 +65,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div>
+        <DivLogin>
             <h1>Login</h1>
             <form onSubmit={login}>
                 <input
@@ -62,7 +92,7 @@ const LoginPage = () => {
             <div>
                 <button onClick={goBack}>Voltar</button>
             </div>
-        </div>
+        </DivLogin>
     )
 }
 
