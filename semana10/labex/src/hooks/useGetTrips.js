@@ -13,12 +13,10 @@ export const useGetTrips = (initialState) => {
         .then((response) => {
             setData(response.data.trips);
             setIsLoading(false);
-            console.log("deu certo", response.data)
         })
         .catch((error) => {
             setError(error.response.data);
             setIsLoading(false)
-            console.log("deu erro", error.response.data)
         })
     }, []);
 

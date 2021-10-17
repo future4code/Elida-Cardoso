@@ -1,8 +1,11 @@
 import React from "react";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { useProtectedPage } from "../hooks/useProtectedPage"
 import styled from "styled-components";
 import { useGetTrips } from "../hooks/useGetTrips";
+import { useEffect } from "react/cjs/react.development";
+import axios from "axios";
+import { BASE_URL } from "../constants/urls";
 
 
 const DivTrip = styled.div`
@@ -17,6 +20,21 @@ const AdminHomePage = () => {
 
     useProtectedPage();
 
+    const deleteTrip = (id) => {
+        axios.delete(`${BASE_URL}/trips/${id}`, {headers: {auth: localStorage.getItem("token")}})
+        .then((response) => {
+            console.log("deu certo", response.data)
+        })
+        .catch((error) => {
+            alert(error.response.data.message)
+            console.log("deu errado", error.response.data)
+        })
+    }
+
+    const goToHomePage = () => {
+        history.push("/");
+    }
+
     const goToCreateTrip = () => {
         history.push("/admin/trips/create");
     };
@@ -29,12 +47,17 @@ const AdminHomePage = () => {
         history.goBack();
     };
 
+    const logout = () => {
+        localStorage.removeItem("token");
+        goToHomePage()
+    }
+
     return (
         <div>
             <h1>Painel Adm</h1>
                 <button onClick={goBack}>Voltar</button>
                 <button onClick={goToCreateTrip}>Criar Viagem</button>
-                <button>Logout</button>
+                <button onClick={logout}>Logout</button>
             <h3>Lista de Viagens</h3>
                 {isLoading && <p>Carregando...</p>}
                 {!isLoading && error && <p>Algo deu errado x_x</p>}
@@ -43,9 +66,13 @@ const AdminHomePage = () => {
                 )}
                 {data && data.map((trip) => {
                     return (
-                        <DivTrip key={trip.id} onClick={() => goToTripDetailsPage(trip.id)} id={trip.id}>
-                            {trip.name}
-                            <button>X</button>
+                        <DivTrip key={trip.id} id={trip.id}>
+                            <div onClick={() => goToTripDetailsPage(trip.id)}>
+                                <p>{trip.name}</p>
+                            </div>
+                            <div>
+                                <button onClick={deleteTrip}>X</button>
+                            </div>
                         </DivTrip>
                     )
                 })}

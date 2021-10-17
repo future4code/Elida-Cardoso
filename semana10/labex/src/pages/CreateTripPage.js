@@ -27,10 +27,10 @@ const CreateTripPage = () => {
     const createTrip = () => {
         axios.post(`${BASE_URL}/trips`, form, {headers: {auth: localStorage.getItem("token")}})
         .then((response) => {
-            console.log("deu certo", response.data);
+            alert("Viagem criada com sucesso!");
         })
         .catch((error) => {
-            console.log("deu erro", error.response.data)
+            alert(error.response.data.message)
         })
     }
 

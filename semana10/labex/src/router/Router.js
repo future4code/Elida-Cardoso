@@ -8,9 +8,22 @@ import AdminHomePage from "../pages/AdminHomePage"
 import TripDetailsPage from "../pages/TripDetailsPage"
 import CreateTripPage from "../pages/CreateTripPage"
 
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #FEF9EF;
+        /* font-family: 'Georama', sans-serif; */
+    }
+`
+
 export const Router = () => {
     return (
         <BrowserRouter>
+            <GlobalStyle />
             <Switch>
                 <Route exact path={"/"}>
                     <HomePage />
