@@ -1,10 +1,14 @@
 import React from "react"
+import Router from "./routes/Router";
+
+import theme from "./constants/theme";
+import { ThemeProvider } from "@emotion/react";
 
 const App = () => {
   return (
-    <div>
-      LabEddit
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router />
+    </ThemeProvider >
   );
 }
 
