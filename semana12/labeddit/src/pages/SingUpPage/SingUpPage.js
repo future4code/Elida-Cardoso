@@ -1,10 +1,13 @@
 import React from "react";
+import SingUpForm from "./SingUpForm";
+import { ScreenContainer } from "./styled"
 
 const SingUpPage = () => {
     return (
-        <div>
-            <h1>SingUpPage</h1>
-        </div>
+        <ScreenContainer>
+            <h1>LabEddit</h1>
+            <SingUpForm />
+        </ScreenContainer>
     )
 }
 

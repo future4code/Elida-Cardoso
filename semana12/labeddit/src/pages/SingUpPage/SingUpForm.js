@@ -1,26 +1,36 @@
 import React from "react";
-import useForm from "../../hooks/useForm"
+import useForm from "../../hooks/useForm";
 import { useHistory } from "react-router";
-import { login } from "../../services/access"
+import { singUp } from "../../services/access";
 
-import { LoginFormContainer, InputsContainer } from "./styled";
-import Button from '@material-ui/core/Button';
+import { SignUpFormContainer, InputsContainer} from "./styled"
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-
-const LoginForm = () => {
-    const [form, onChange, clear] = useForm({email: "", password:""})
+const SingUpForm = () => {
+    const [form, onChange, clear] = useForm({username: "", email: "", password: ""});
     const history = useHistory()
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        login(form, clear, history)
-    }
+        singUp(form, clear, history);
+    };
 
     return (
-        <LoginFormContainer>
+        <SignUpFormContainer>
             <form onSubmit={onSubmitForm}>
                 <InputsContainer>
+                    <TextField 
+                        name={"username"}
+                        value={form.username}
+                        onChange={onChange}
+                        label={"Name"}
+                        variant={"filled"}
+                        margin={"normal"}
+                        color={"primary"}
+                        fullWidth
+                        required
+                    />
                     <TextField
                         name={"email"}
                         value={form.email}
@@ -43,6 +53,10 @@ const LoginForm = () => {
                         color={"primary"}
                         fullWidth
                         type={"password"}
+                        inputProps={{
+                            pattern: "^.{8,30}",
+                            title: "A senha deve ter entre 8 e 30 caracteres"
+                        }}
                         required
                     />
                 </InputsContainer>
@@ -52,11 +66,11 @@ const LoginForm = () => {
                         variant={"contained"}
                         color={"primary"}
                     >
-                        Login
+                        Sing Up
                     </Button>
             </form>
-        </LoginFormContainer>
+        </SignUpFormContainer>
     )
 };
 
-export default LoginForm;
+export default SingUpForm;
