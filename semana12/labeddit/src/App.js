@@ -3,12 +3,15 @@ import Router from "./routes/Router";
 
 import theme from "./constants/theme";
 import { ThemeProvider } from "@emotion/react";
+import GlobalState from "./context/GlobalState";
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <Router />
-    </ThemeProvider >
+    <GlobalState>
+      <ThemeProvider theme={theme}>
+        <Router />
+      </ThemeProvider >
+    </GlobalState>
   );
 }
 

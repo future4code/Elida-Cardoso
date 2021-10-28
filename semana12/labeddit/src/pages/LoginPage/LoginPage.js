@@ -1,12 +1,15 @@
 import React from "react";
 import LoginForm from "./LoginForm";
 import { useHistory } from "react-router-dom";
-import { goToSingUpPage } from "../../routes/coordinator"
+import { goToSignUpPage } from "../../routes/coordinator"
+import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 
 import { ScreenContainer, SignUpButtonContainer} from "./styled"
 import Button from '@material-ui/core/Button'
 
 const LoginPage = () => {
+    useUnprotectedPage();
+
     const history = useHistory();
 
     return (
@@ -15,13 +18,13 @@ const LoginPage = () => {
             <LoginForm />
             <SignUpButtonContainer>
                     <Button
-                        onClick={() => goToSingUpPage(history)}
+                        onClick={() => goToSignUpPage(history)}
                         type={"submit"}
                         fullWidth
                         variant={"text"}
                         color={"primary"}
                     >
-                    Don't have a account? Sing Up Here!
+                    Don't have a account? Sign Up Here!
                     </Button>
             </SignUpButtonContainer>
         </ScreenContainer>

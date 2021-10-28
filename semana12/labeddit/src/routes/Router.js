@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LoginPage from "../pages/LoginPage/LoginPage"
-import SingUpPage from "../pages/SingUpPage/SingUpPage"
+import SignUpPage from "../pages/SignUpPage/SignUpPage"
 import FeedPage from "../pages/FeedPage/FeedPage"
 import PostDetailsPage from "../pages/PostDetailsPage/PostDetailsPage"
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -16,8 +16,8 @@ const Router = () => {
                     <LoginPage />
                 </Route>
 
-                <Route exact path={"/singup"}>
-                    <SingUpPage />
+                <Route exact path={"/signup"}>
+                    <SignUpPage />
                 </Route>
 
                 <Route exact path={"/"}>

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from '../../context/GlobalContext';
 import useForm from "../../hooks/useForm"
 import { useHistory } from "react-router";
 import { login } from "../../services/access"
@@ -9,12 +10,13 @@ import TextField from '@material-ui/core/TextField';
 
 
 const LoginForm = () => {
+    const {setRightButtonText} = useContext(GlobalContext);
     const [form, onChange, clear] = useForm({email: "", password:""})
     const history = useHistory()
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        login(form, clear, history)
+        login(form, clear, history, setRightButtonText)
     }
 
     return (
