@@ -3,6 +3,7 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 import Post from "../../components/Post/Post";
 
 import { ContainerFeed } from "./styled"
+import Button from '@mui/material/Button';
 
 
 const FeedPage = () => {
@@ -11,7 +12,7 @@ const FeedPage = () => {
 
     return (
         <ContainerFeed>
-            <h1>Criar novo post +</h1>
+            <Button>Criar novo post +</Button>
             <Post />
         </ContainerFeed>
     )

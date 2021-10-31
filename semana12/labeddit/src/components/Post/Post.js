@@ -1,8 +1,9 @@
-    import React from "react";
+    import React, { useContext, useState } from "react";
+    import axios from "axios";
     import useRequestData from "../../hooks/useRequestData"
-    import { useHistory } from "react-router";
     import { BASE_URL } from "../../constants/urls"
-    import { goToPostDetailsPage } from "../../routes/coordinator"
+    import { GlobalContext } from '../../context/GlobalContext';
+    import PostComments from "../Comments/PostComments"
 
     import { ContainerPost, DivUsername, DivText, DivNumbers, DivArrows } from "./styled"
     import IconButton from '@mui/material/IconButton';
@@ -11,14 +12,26 @@
     import Button from '@mui/material/Button';
 
     const Post = () => {
-        const history = useHistory();
-
         const posts = useRequestData([], `${BASE_URL}/posts`);
+        const { setPostComments } = useContext(GlobalContext);
+        const [showComments, setShowComments] = useState(false);
+
 
         const onClickPost = (id) => {
-            goToPostDetailsPage(history, id);
+            axios.get(`${BASE_URL}/posts/${id}/comments`, {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+                }).then((response) => { setPostComments(response.data) })
+                .catch((error) => {
+                    alert(error.response.data)
+                })
+            setShowComments(prevShowComments => ({
+                ...prevShowComments,
+                [id]: !prevShowComments[id]
+            }));
         }
-        
+
         const postComponents = posts.map((post) => {
             return (
                 <ContainerPost key={post.id}>
@@ -34,7 +47,7 @@
                             <IconButton aria-label="positive">
                                 <ArrowCircleUpSharpIcon/>
                             </IconButton>
-                            <p>{post.voteSum}</p>
+                                {post.voteSum && post.voteSum ? <p>{post.voteSum}</p> : <p>0</p>}
                             <IconButton aria-label="negative">
                                 <ArrowCircleDownSharpIcon/>
                             </IconButton>
@@ -45,6 +58,7 @@
                                 <Button variant="text" onClick={() => onClickPost(post.id)} > 0 comentários</Button> 
                         }
                     </DivNumbers>
+                    {showComments[post.id] ? <PostComments /> : null}
                 </ContainerPost>
             )
         });
