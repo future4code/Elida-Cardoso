@@ -96,6 +96,17 @@ app.post("/task", async (req, res) => {
     } catch (error) {
         res.status(errorCode).send(error.sqlMessage || error.message);
     }
+});
+
+app.get("/task/:id", async (req, res) => {
+    try {
+        const task = await connection("ToDoListTask")
+            .where({id: req.params.id});
+
+        res.status(200).send(task);
+    } catch (error) {
+        res.status(500).send(error.sqlMessage || error.message);
+    }
 })
 
 const server = app.listen(process.env.PORT || 3003, () => {
