@@ -11,3 +11,11 @@ export type Product = {
     price: string
     image_url: string
 };
+
+export type Purchase = {
+    id: string
+    user_id: string
+    product_id: string
+    quantity: string
+    total_price: number
+};
