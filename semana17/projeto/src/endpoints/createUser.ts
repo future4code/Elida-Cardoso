@@ -1,14 +1,8 @@
 import {Response, Request} from 'express';
 import { connection } from "../connection"
+import { User } from '../types';
 
-type User = {
-    id: string
-    name: string
-    email: string
-    password: string
-};
-
-const createUser = async (req: Request, res: Response) => {
+const createUser = async (req: Request, res: Response): Promise<void> => {
     let errorCode = 500;
 
     try {
@@ -30,7 +24,7 @@ const createUser = async (req: Request, res: Response) => {
 
         res.status(200).send("Usuário criado com sucesso");
 
-    } catch (error) {
+    } catch (error: any) {
         res.status(errorCode).send(error.sqlMessage || error.message)
     }
 };
